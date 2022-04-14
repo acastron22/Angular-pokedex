@@ -1,14 +1,16 @@
 <div class="pokemon-card">
   <div class="pokemon-card__img">
-    <img
-      src="https://assets.pokemon.com/assets/cms2/img/pokedex/detail/001.png"
-      alt="Pokemon Image"
-    />
+    <img [src]="pokemon.image" alt="Pokemon Image" />
   </div>
-  <div class="pokemon-card__number">Nº 001</div>
-  <div class="pokemon-card__name">Bulbassaur</div>
+  <div class="pokemon-card__number">Nº {{ leadingZero(pokemon.number) }}</div>
+  <div class="pokemon-card__name">{{ pokemon.name }}</div>
   <div class="pokemon-card__types">
-    <div class="pokemon-card__type pokemon-card__type--type1 grass">Grass</div>
-    <div class="pokemon-card__type pokemon-card__type--type2 poison">Poison</div>
+    <div
+      class="pokemon-card__type pokemon-card__type--type1"
+      *ngFor="let type of pokemon.types"
+      [class]="type.toLowerCase()"
+    >
+      {{ type }}
+    </div>
   </div>
 </div>
