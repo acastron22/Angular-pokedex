@@ -1,3 +1,4 @@
+import { PokemonService } from './../../_services/pokemon.service';
 import { Component, OnInit } from '@angular/core';
 import { Pokemon } from 'src/_model/Pokemon';
 import { Type } from 'src/_model/Type';
@@ -8,31 +9,10 @@ import { Type } from 'src/_model/Type';
   styleUrls: ['./pokemon-list.component.css'],
 })
 export class PokemonListComponent implements OnInit {
-  public pokemons: Pokemon[] = [
-    {
-      image:
-        'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/001.png',
-      number: 1,
-      name: 'Bulbassaur',
-      types: [Type.Grass, Type.Poison],
-    },
-    {
-      image:
-        'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/002.png',
-      number: 2,
-      name: 'Ivysaur',
-      types: [Type.Grass, Type.Poison],
-    },
-    {
-      image:
-        'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/003.png',
-      number: 3,
-      name: 'Venossaur',
-      types: [Type.Grass, Type.Poison],
-    },
-  ];
 
-  constructor() {}
+  constructor(
+    public pokemonService: PokemonService
+  ) {}
 
   ngOnInit(): void {}
 }
